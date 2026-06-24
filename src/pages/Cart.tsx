@@ -1,21 +1,18 @@
-import reactLogo from "../assets/react.svg";
-import viteLogo from "../assets/vite.svg";
-import heroImg from "../assets/hero.png";
+import CartCard from "../components/CartCard";
+import OrderSummary from "../components/OrderSummary";
 
 export default function Cart() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Cart Page</h1>
-        </div>
+    <main className="max-w-7xl mx-auto px-4 py-8 grid lg:grid-cols-3 gap-8">
+      <section className="lg:col-span-2 space-y-4">
+        <h1 className="text-2xl font-bold text-brand-dark mb-2">
+          Your Shopping Basket
+        </h1>
+
+        <CartCard />
+        <CartCard />
       </section>
-      <section id="spacer"></section>
-    </>
+      <OrderSummary />
+    </main>
   );
 }

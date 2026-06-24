@@ -1,33 +1,22 @@
 import "./App.css";
+import NavbarV1 from "./components/NavbarV1";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
-import Listing from "./pages/Listing";
-import Groceries from "./pages/Listings/Groceries";
-import Meat from "./pages/Listings/Meat";
-import Vegetables from "./pages/Listings/Vegetables";
+import Shop from "./pages/shop";
+import Vegetables from "./pages/shop";
 import NotFound from "./pages/NotFound";
 import Orders from "./pages/Orders";
-import { Routes, Route, Link } from "react-router";
+import { Routes, Route } from "react-router";
 
 function App() {
   return (
     <section className="app-container">
-      <nav className="nav">
-        <Link to={"/"}>Home</Link>
-        <Link to={"/cart"}>Cart</Link>
-        <Link to={"/listing"}>Listings</Link>
-        <Link to={"/orders"}>Orders</Link>
-        <Link to={"/orders/history"}>History</Link>
-      </nav>
+      <NavbarV1 />
       <div className="routes-container">
         <Routes>
           <Route path="/" Component={Home} />
           <Route path="/cart" Component={Cart} />
-          <Route path="/listing" Component={Listing}>
-            <Route index Component={Vegetables} />
-            <Route path="/listing/groceries" Component={Groceries} />
-            <Route path="/listing/meat" Component={Meat} />
-          </Route>
+          <Route path="/shop" Component={Shop} />
           <Route path="/orders" Component={Orders} />
           <Route path="*" Component={NotFound} />
         </Routes>
