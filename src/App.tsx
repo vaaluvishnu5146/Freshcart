@@ -2,6 +2,9 @@ import "./App.css";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Listing from "./pages/Listing";
+import Groceries from "./pages/Listings/Groceries";
+import Meat from "./pages/Listings/Meat";
+import Vegetables from "./pages/Listings/Vegetables";
 import NotFound from "./pages/NotFound";
 import Orders from "./pages/Orders";
 import { Routes, Route, Link } from "react-router";
@@ -20,7 +23,11 @@ function App() {
         <Routes>
           <Route path="/" Component={Home} />
           <Route path="/cart" Component={Cart} />
-          <Route path="/listing" Component={Listing} />
+          <Route path="/listing" Component={Listing}>
+            <Route index Component={Vegetables} />
+            <Route path="/listing/groceries" Component={Groceries} />
+            <Route path="/listing/meat" Component={Meat} />
+          </Route>
           <Route path="/orders" Component={Orders} />
           <Route path="*" Component={NotFound} />
         </Routes>

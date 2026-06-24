@@ -21,10 +21,6 @@ body {
   width: 100%;
   padding: 20px 0;
   box-sizing: border-box;
-}
-
-.routes-container {
-  display: flex;
-  align-items: center;
-  height: 100%;
+  background-color: rgb(232, 232, 232);
+  border-radius: 20px;
 }
