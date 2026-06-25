@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { ProductsResponse } from "../types/ApiInterfaces";
 
 export default function ProductCard({
@@ -28,7 +29,10 @@ export default function ProductCard({
           <span className="text-xs font-semibold text-brand tracking-wider uppercase">
             {type}
           </span>
-          <h4 className="font-bold text-gray-800 text-lg mt-1">{title}</h4>
+          <Link to={`/shop/product/${id}`}>
+            <h4 className="font-bold text-gray-800 text-lg mt-1">{title}</h4>
+          </Link>
+
           <p className="text-sm text-gray-400 mt-1">{unit}</p>
         </div>
       </div>
