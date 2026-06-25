@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import type { ProductsResponse } from "../types/ApiInterfaces";
 
 export default function ProductCard({
@@ -10,6 +10,7 @@ export default function ProductCard({
   price,
   image,
 }: ProductsResponse) {
+  const navigate = useNavigate();
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition flex flex-col justify-between">
       <div>
@@ -38,6 +39,12 @@ export default function ProductCard({
       </div>
       <div className="p-4 pt-0 flex justify-between items-center">
         <span className="text-xl font-black text-brand-dark">{price}</span>
+        <button
+          onClick={() => navigate(`/shop/product/${id}`)}
+          className="bg-brand-light hover:bg-brand text-brand hover:text-white px-3 py-2 rounded-xl text-sm font-bold transition flex items-center gap-2"
+        >
+          <i className="fa-solid fa-eye"></i>
+        </button>
         <button className="bg-brand-light hover:bg-brand text-brand hover:text-white px-3 py-2 rounded-xl text-sm font-bold transition flex items-center gap-2">
           <i className="fa-solid fa-plus"></i> Add
         </button>
