@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function AdvertisementBanner() {
   return (
     <header className="bg-brand-light py-12 md:py-20 px-4">
@@ -16,12 +18,12 @@ export default function AdvertisementBanner() {
             groceries delivered right to your doorstep within 2 hours.
           </p>
           <div className="mt-8 flex gap-4">
-            <a
-              href="listings.html"
+            <Link
               className="bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-3 rounded-xl shadow-lg shadow-brand/20 transition duration-300"
+              to={`/shop`}
             >
               Shop Now
-            </a>
+            </Link>
             <a
               href="#categories"
               className="bg-white border border-gray-200 hover:border-brand text-gray-700 font-semibold px-6 py-3 rounded-xl transition"

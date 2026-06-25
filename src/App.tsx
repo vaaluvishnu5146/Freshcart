@@ -7,25 +7,34 @@ import NotFound from "./pages/NotFound";
 import Orders from "./pages/Orders";
 import { Routes, Route } from "react-router";
 import ProductDetails from "./pages/ProductDetails";
+import ProductContextProvider from "./context/ProductContext";
+import CartContextProvider from "./context/CartContext";
 
 function App() {
   return (
-    <section className="app-container">
-      <NavbarV1 />
-      <div className="routes-container">
-        <Routes>
-          <Route path="/" Component={Home} />
-          <Route path="/cart" Component={Cart} />
-          <Route path="/shop">
-            <Route index Component={Shop} />
-            <Route path="/shop/product/:productId" Component={ProductDetails} />
-          </Route>
-          <Route path="/orders" Component={Orders} />
+    <ProductContextProvider>
+      <CartContextProvider>
+        <section className="app-container">
+          <NavbarV1 />
+          <div className="routes-container">
+            <Routes>
+              <Route path="/" Component={Home} />
+              <Route path="/cart" Component={Cart} />
+              <Route path="/shop">
+                <Route index Component={Shop} />
+                <Route
+                  path="/shop/product/:productId"
+                  Component={ProductDetails}
+                />
+              </Route>
+              <Route path="/orders" Component={Orders} />
 
-          <Route path="*" Component={NotFound} />
-        </Routes>
-      </div>
-    </section>
+              <Route path="*" Component={NotFound} />
+            </Routes>
+          </div>
+        </section>
+      </CartContextProvider>
+    </ProductContextProvider>
   );
 }
 
