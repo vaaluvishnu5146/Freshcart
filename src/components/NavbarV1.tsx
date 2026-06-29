@@ -1,9 +1,14 @@
 import { useContext } from "react";
 import { NavLink } from "react-router";
 import { CartContext } from "../context/CartContext";
+import { ProductContext } from "../context/ProductContext";
 
 export default function NavbarV1() {
+  const { products = [] } = useContext(ProductContext);
   const { cart = [] } = useContext(CartContext);
+
+  console.log("Navbar", products);
+
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

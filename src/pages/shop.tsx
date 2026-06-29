@@ -9,6 +9,8 @@ export default function Shop() {
   const { products = [] } = useContext(ProductContext);
   const { cart, addItemToCart } = useContext(CartContext);
 
+  console.log("Shop", products);
+
   function computeIsAddedToCart(productId: number) {
     return cart.find((e) => {
       if (e.id === productId) {

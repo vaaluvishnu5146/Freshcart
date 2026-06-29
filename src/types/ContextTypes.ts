@@ -23,3 +23,7 @@ export type CartContextType = {
   quantityIncrement: (productId: number) => void;
   quantityDecrement: (productId: number) => void;
 };
+
+export type PaymentContextType = {
+  cardInfo: {};
+};
