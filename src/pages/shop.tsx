@@ -1,15 +1,12 @@
-import { useContext } from "react";
 import Filters from "../components/Filters";
 import ProductCard from "../components/ProductCard";
 import Dropdown from "../elements/Dropdown";
-import { ProductContext } from "../context/ProductContext";
-import { CartContext } from "../context/CartContext";
+import { useSelector } from "react-redux";
+import { addItemToCart } from "../redux/slices/Cart.slice";
 
 export default function Shop() {
-  const { products = [] } = useContext(ProductContext);
-  const { cart, addItemToCart } = useContext(CartContext);
-
-  console.log("Shop", products);
+  const products = useSelector((store) => store.products.data);
+  const cart = useSelector((store) => store.cart.data);
 
   function computeIsAddedToCart(productId: number) {
     return cart.find((e) => {

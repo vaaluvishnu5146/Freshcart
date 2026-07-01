@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import type { ProductCardProps } from "../types/ApiInterfaces";
+import { useDispatch } from "react-redux";
 
 export default function ProductCard({
   data,
@@ -7,6 +8,7 @@ export default function ProductCard({
   isAddedToCart,
 }: ProductCardProps) {
   const navigate = useNavigate();
+  const dispatcher = useDispatch();
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition flex flex-col justify-between">
       <div>
@@ -47,7 +49,7 @@ export default function ProductCard({
             <i className="fa-solid fa-eye"></i>
           </button>
           <button
-            onClick={() => addToCart(data)}
+            onClick={() => dispatcher(addToCart(data))}
             disabled={isAddedToCart}
             className="bg-brand-light hover:bg-brand text-brand hover:text-white px-3 py-2 rounded-xl text-sm font-bold transition flex items-center gap-2 disabled:bg-gray-400 disabled:text-white"
           >

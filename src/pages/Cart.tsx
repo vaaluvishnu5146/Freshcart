@@ -1,14 +1,13 @@
-import { useContext } from "react";
 import CartCard from "../components/CartCard";
 import OrderSummary from "../components/OrderSummary";
-import { CartContext } from "../context/CartContext";
+import { useSelector } from "react-redux";
+import {
+  quantityDecrement,
+  quantityIncrement,
+} from "../redux/slices/Cart.slice";
 
 export default function Cart() {
-  const {
-    cart = [],
-    quantityDecrement,
-    quantityIncrement,
-  } = useContext(CartContext);
+  const cart = useSelector((store) => store.cart.data);
   return (
     <main className="max-w-7xl mx-auto px-4 py-8 grid lg:grid-cols-3 gap-8">
       <section className="lg:col-span-2 space-y-4">

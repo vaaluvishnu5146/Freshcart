@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import type { Cart } from "../types/ContextTypes";
 
 export default function CartCard({
@@ -9,6 +10,8 @@ export default function CartCard({
   increment: (productId: number) => void;
   decrement: (productId: number) => void;
 }) {
+  const dispatcher = useDispatch();
+
   function calclatedPrice(price: number, qty: number) {
     return price * qty;
   }
@@ -29,7 +32,7 @@ export default function CartCard({
       </div>
       <div className="flex items-center gap-3 border border-gray-200 rounded-xl p-1 bg-gray-50">
         <button
-          onClick={() => decrement(data.id)}
+          onClick={() => dispatcher(decrement(data.id))}
           className="w-8 h-8 rounded-lg hover:bg-white text-gray-500 hover:text-brand transition font-bold"
         >
           -
@@ -38,7 +41,7 @@ export default function CartCard({
           {data.quantity}
         </span>
         <button
-          onClick={() => increment(data.id)}
+          onClick={() => dispatcher(increment(data.id))}
           className="w-8 h-8 rounded-lg hover:bg-white text-gray-500 hover:text-brand transition font-bold"
         >
           +

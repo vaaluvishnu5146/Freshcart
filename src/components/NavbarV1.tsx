@@ -1,13 +1,8 @@
-import { useContext } from "react";
 import { NavLink } from "react-router";
-import { CartContext } from "../context/CartContext";
-import { ProductContext } from "../context/ProductContext";
+import { useSelector } from "react-redux";
 
 export default function NavbarV1() {
-  const { products = [] } = useContext(ProductContext);
-  const { cart = [] } = useContext(CartContext);
-
-  console.log("Navbar", products);
+  const cartLength = useSelector((store) => store.cart.data.length);
 
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
@@ -78,7 +73,7 @@ export default function NavbarV1() {
             >
               <i className="fa-solid fa-basket-shopping text-xl"></i>
               <span className="absolute -top-2 -right-3 bg-brand text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                {cart.length}
+                {cartLength}
               </span>
             </NavLink>
           </div>
